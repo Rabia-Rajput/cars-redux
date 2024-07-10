@@ -1,5 +1,5 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-import React from "react";
+
 
 const carsSlice = createSlice({
   name: "cars",
