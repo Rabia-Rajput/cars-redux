@@ -1,9 +1,33 @@
-import React from 'react'
+import { useSelector } from "react-redux";
 
 const CarList = () => {
-  return (
-    <div>CarList</div>
-  )
-}
+  const cars = useSelector((state) => {
+    return state.cars.data;
+  });
+  const handleCarDelete = (car) => {
+    //,m,m
+  };
+  const renderedCars = cars.map((car) => {
+    return (
+      <div key={car.id} className="panel">
+        <p>
+          {car.name} - ${car.cost}
+        </p>
+        <button
+          onClick={() => handleCarDelete(car)}
+          className="button is-danger"
+        >
+          Delete
+        </button>
+      </div>
+    );
+  });
 
-export default CarList
+  return (
+    <div className="car-list">
+      {renderedCars} <hr />
+    </div>
+  ); 
+};
+
+export default CarList;
